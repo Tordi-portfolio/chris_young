@@ -23,7 +23,7 @@
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(16px);
-    box-shadow: 0 0 30px rgba(255, 60, 0, 0.2);
+    box-shadow: 0 0 30px rgba(255, 140, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.05);
     animation: fadeInUp 0.8s ease;
   }
@@ -31,9 +31,9 @@
   .donation-card h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: #ff3c00;
+    color: #ff8c00;
     font-size: 28px;
-    text-shadow: 0 0 8px rgba(255, 60, 0, 0.5);
+    text-shadow: 0 0 8px rgba(255, 140, 0, 0.5);
     letter-spacing: 1px;
   }
 
@@ -69,8 +69,8 @@
   .donation-form input:focus,
   .donation-form textarea:focus,
   .donation-form select:focus {
-    border-color: #ff3c00;
-    box-shadow: 0 0 8px rgba(255, 60, 0, 0.4);
+    border-color: #ff8c00;
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
   }
 
   .donation-form textarea {
@@ -82,19 +82,19 @@
     width: 100%;
     padding: 14px;
     font-size: 16px;
-    background: #ff3c00;
+    background: #ff8c00;
     color: #fff;
     border: none;
     border-radius: 14px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 0 12px rgba(255, 60, 0, 0.4);
+    box-shadow: 0 0 12px rgba(255, 140, 0, 0.4);
   }
 
   .donation-form button:hover {
-    background: #e03600;
-    box-shadow: 0 0 20px rgba(255, 60, 0, 0.6);
+    background: #e07b00;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.6);
     transform: translateY(-1px);
   }
 
@@ -118,7 +118,7 @@
 
 <div class="donation-wrapper">
   <div class="donation-card">
-    <h2>Support Jason Momoa By Donating</h2>
+    <h2>Support Chris Young's Journey</h2>
     <form method="post" class="donation-form">
       {% csrf_token %}
       <label for="name">Full Name</label>
@@ -136,17 +136,17 @@
         <option value="crypto">Crypto (BTC, ETH)</option>
       </select>
 
-      <label for="message">Message to Jason (optional)</label>
-      <textarea name="message" id="message" placeholder="Write something nice..."></textarea>
+      <label for="message">Message to Chris (optional)</label>
+      <textarea name="message" id="message" placeholder="Leave a message for Chris..."></textarea>
 
-      <button type="submit">Send Payment Details</button>
+      <button type="submit">Send Donation</button>
     </form>
   </div>
 
   <div class="donation-card">
     <div class="donation-form">
       <a href="{% url 'donate_payment' %}">
-        <button type="button">Go To Donate Page</button>
+        <button type="button">Go To Payment Page</button>
       </a>
     </div>
   </div>

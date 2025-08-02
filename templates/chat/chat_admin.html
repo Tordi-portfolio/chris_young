@@ -1,6 +1,12 @@
-{% extends 'base2.html' %}
-
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
 <style>
   body {
     background: linear-gradient(120deg, #0d0d0d, #1a1a1a);
@@ -226,6 +232,7 @@
 </style>
 
 <div class="chat-container">
+  <a href="{% url 'home' %}"><button type="submit" class="send-btn">Back</button></a>
   <div class="chat-title">Chat with Admin</div>
 
   <div class="chat-box" id="chatBox">
@@ -362,4 +369,6 @@
     }
   });
 </script>
-{% endblock %}
+
+</body>
+</html>

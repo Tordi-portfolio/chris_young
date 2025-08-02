@@ -2,12 +2,12 @@
 
 {% block content %}
 <div class="upload-gallery-container">
-    <h2>📷 Upload New Gallery Image</h2>
+    <h2>🎸 Upload a New Chris Young Gallery Image</h2>
     
     <form method="POST" enctype="multipart/form-data" class="upload-gallery-form">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="upload-btn">Upload Image</button>
+        <button type="submit" class="upload-btn">Upload to Gallery</button>
     </form>
 </div>
 
@@ -16,15 +16,16 @@
     max-width: 500px;
     margin: 60px auto;
     padding: 30px;
-    background: #fff;
+    background: #fdfaf5; /* subtle country background */
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    font-family: 'Georgia', serif;
 }
 
 .upload-gallery-container h2 {
     text-align: center;
     font-size: 1.8rem;
-    color: #222;
+    color: #3c2f2f;
     margin-bottom: 25px;
 }
 
@@ -37,28 +38,30 @@
 .upload-gallery-form label {
     font-weight: 600;
     margin-bottom: 5px;
+    color: #5c4033;
 }
 
 .upload-gallery-form input[type="file"],
 .upload-gallery-form input[type="text"],
 .upload-gallery-form textarea {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #cbbf9d;
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
     transition: border 0.3s ease;
+    background: #fffef9;
 }
 
 .upload-gallery-form input[type="file"]:focus,
 .upload-gallery-form input[type="text"]:focus,
 .upload-gallery-form textarea:focus {
-    border-color: #0d6efd;
+    border-color: #a67c52;
 }
 
 .upload-btn {
     padding: 12px;
-    background: linear-gradient(135deg, #0d6efd, #084dbf);
+    background: linear-gradient(135deg, #a67c52, #6e4b27);
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -69,7 +72,7 @@
 }
 
 .upload-btn:hover {
-    background: #084dbf;
+    background: #6e4b27;
 }
 
 /* Responsive for Tablets */

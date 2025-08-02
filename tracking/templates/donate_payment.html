@@ -4,7 +4,8 @@
 {% block content %}
 <style>
   body {
-    background: linear-gradient(to bottom right, #000000, #1a1a1a);
+    background: linear-gradient(to bottom right, #1f1f1f, #0e0e0e);
+    font-family: 'Georgia', serif;
   }
 
   .payment-container {
@@ -17,21 +18,21 @@
 
   .crypto-card {
     width: 340px;
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 30px 25px;
     text-align: center;
-    box-shadow: 0 0 30px rgba(255, 60, 0, 0.2);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
     animation: fadeIn 0.8s ease;
   }
 
   .crypto-card h2 {
     font-size: 22px;
     margin-bottom: 15px;
-    color: #ff3c00;
-    text-shadow: 0 0 6px rgba(255, 60, 0, 0.4);
+    color: #FFD700; /* rustic gold */
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
   }
 
   .crypto-card img.qr {
@@ -40,22 +41,22 @@
     object-fit: contain;
     margin: 20px 0;
     border-radius: 12px;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
   }
 
   .wallet-address {
     font-size: 14px;
-    color: #ddd;
+    color: #e0e0e0;
     word-break: break-all;
-    background: rgba(255,255,255,0.03);
+    background: rgba(255,255,255,0.02);
     padding: 10px 14px;
     border-radius: 10px;
     margin-bottom: 15px;
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.04);
   }
 
   .copy-btn {
-    background: #ff3c00;
+    background: #003366;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -64,17 +65,17 @@
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: bold;
-    box-shadow: 0 0 12px rgba(255, 60, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 51, 102, 0.3);
   }
 
   .copy-btn:hover {
-    background: #e03600;
-    box-shadow: 0 0 20px rgba(255, 60, 0, 0.5);
+    background: #002244;
+    box-shadow: 0 0 15px rgba(0, 51, 102, 0.5);
     transform: translateY(-1px);
   }
 
   .note {
-    color: #aaa;
+    color: #bbb;
     font-size: 13px;
     margin-top: 20px;
   }
@@ -102,28 +103,27 @@
 
   <!-- USDT Card -->
   <div class="crypto-card">
-    <h2>Donate with USDT (ETH)</h2>
+    <h2>Support Chris Young (USDT - ETH)</h2>
     <img src="{% static 'crypto/tether.png' %}" alt="USDT QR" class="qr">
     <div class="wallet-address" id="usdtAddress">0xdB8445Fe496fB67f1d2a192867782dA3CF1bc1c7</div>
     <button class="copy-btn" onclick="copyToClipboard('usdtAddress')">Copy Address</button>
-    <p class="note">Make sure you're sending via TRC20 network.</p>
+    <p class="note">Please use the TRC20 network for sending donations.</p>
   </div>
 
   <!-- BTC Card -->
   <div class="crypto-card">
-    <h2>Donate with Bitcoin</h2>
+    <h2>Support Chris Young (Bitcoin)</h2>
     <img src="{% static 'crypto/bitcoin.png' %}" alt="Bitcoin QR" class="qr">
     <div class="wallet-address" id="btcAddress">bc1qefuyj37efns3j4f05zpw3t9n0rerl0he0ez2al</div>
     <button class="copy-btn" onclick="copyToClipboard('btcAddress')">Copy Address</button>
-    <p class="note">Wait for at least 1 confirmation to verify donation.</p>
+    <p class="note">Wait for at least 1 confirmation to verify the donation.</p>
   </div>
 
 </div>
 
-
 <div class="payment-container">
   <div class="crypto-card">
-    <a href="{% url 'chat_with_admin' %}"><button class="copy-btn">Chat With Admin</button></a>
+    <a href="{% url 'chat_with_admin' %}"><button class="copy-btn">Chat With Chris's Team</button></a>
   </div>
 </div>
 

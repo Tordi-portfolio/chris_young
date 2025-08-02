@@ -2,7 +2,8 @@
 {% block content %}
 
 <div class="fancard-upload-wrapper">
-    <h2 class="fancard-title">Upload Fan Card to User</h2>
+    <h2 class="fancard-title">Upload Chris Young Fan Card</h2>
+    <p class="fancard-subtitle">Be part of the country soul — upload a custom fan card for a true Chris Young supporter.</p>
 
     <form method="POST" enctype="multipart/form-data" class="fancard-form">
         {% csrf_token %}
@@ -12,15 +13,18 @@
 </div>
 
 <style>
-/* Unique, isolated styling */
+/* Chris Young Fan Card Styling */
 .fancard-upload-wrapper {
-    max-width: 450px;
+    max-width: 480px;
     margin: 60px auto;
-    padding: 30px 25px;
+    padding: 35px 25px;
     background: #fff;
     border-radius: 18px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.15);
     transition: transform 0.3s ease;
+    background-image: url('/static/images/chris-young-bg.jpg'); /* Optional BG */
+    background-size: cover;
+    background-blend-mode: lighten;
 }
 
 .fancard-upload-wrapper:hover {
@@ -29,10 +33,18 @@
 
 .fancard-title {
     text-align: center;
-    color: var(--primary-color);
+    color: #1d3557;
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: 'Georgia', serif;
+}
+
+.fancard-subtitle {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #444;
     margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-    font-weight: 600;
 }
 
 .fancard-form {
@@ -46,11 +58,12 @@
 .fancard-form select,
 .fancard-form textarea {
     width: 100%;
-    padding: 12px 15px;
+    padding: 12px 14px;
     border: 1px solid #ccc;
     border-radius: 8px;
     outline: none;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
     transition: border 0.3s, box-shadow 0.3s;
 }
 
@@ -58,31 +71,31 @@
 .fancard-form input[type="file"]:focus,
 .fancard-form select:focus,
 .fancard-form textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 8px rgba(13, 110, 253, 0.2);
+    border-color: #a3702d;
+    box-shadow: 0 0 8px rgba(163, 112, 45, 0.3);
 }
 
 .fancard-btn {
-    background: var(--primary-color);
+    background: #a3702d;
     color: #fff;
     padding: 12px;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: background 0.3s, box-shadow 0.3s;
 }
 
 .fancard-btn:hover {
-    background: #0b5ed7;
-    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+    background: #7e501f;
+    box-shadow: 0 4px 12px rgba(163, 112, 45, 0.4);
 }
 
 @media (max-width: 600px) {
     .fancard-upload-wrapper {
         margin: 30px 15px;
-        padding: 20px;
+        padding: 22px;
     }
 }
 </style>
