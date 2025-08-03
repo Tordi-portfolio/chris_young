@@ -181,3 +181,24 @@ from .models import PrivateChat  # Import your model
 def get_unread_count(request):
     count = PrivateChat.objects.filter(recipient=request.user, is_read=False).count()
     return JsonResponse({'unread_count': count})
+
+
+
+def moodley(request):
+    return render(request, 'fans/moodley.html')
+
+def tamara(request):
+    return render(request, 'fans/tamara.html')
+
+def johnna(request):
+    return render(request, 'fans/johnna.html')
+
+def martha(request):
+    return render(request, 'fans/martha.html')
+
+
+def madelena(request):
+    return render(request, 'fans/madelena.html')
+
+def lucie(request):
+    return render(request, 'fans/lucie.html')

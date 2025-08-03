@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'app3',
     'tracking',
     'app4',
+    'news',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

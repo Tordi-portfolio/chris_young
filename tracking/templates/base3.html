@@ -1,0 +1,359 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keanu Reeves</title>
+
+  <style>
+    body.base2-body {
+      background-color: #000;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .base2-navbar {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 0 20px rgba(255, 60, 0, 0.15);
+      border-bottom: 1px solid rgba(255, 60, 0, 0.1);
+      position: relative;
+    }
+
+    .base2-navbar .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 8px rgba(255, 60, 0, 0.5);
+    }
+
+    .base2-menu-toggle {
+      display: none;
+      font-size: 26px;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .base2-nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .base2-nav-links li a {
+      text-decoration: none;
+      color: #eee;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .base2-nav-links li a:hover,
+    .base2-nav-links li a.active {
+      color: #ff3c00;
+    }
+
+    .base2-nav-links li a.active::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #ff3c00;
+      bottom: -4px;
+      left: 0;
+    }
+
+    .base2-footer {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 40px 30px;
+      color: #eee;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(255, 60, 0, 0.1);
+      margin-top: 50px;
+    }
+
+    .base2-footer-section h4 {
+      color: #ff3c00;
+      margin-bottom: 12px;
+      font-size: 18px;
+      text-shadow: 0 0 6px rgba(255, 60, 0, 0.4);
+    }
+
+    .base2-footer-section a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      margin: 5px 0;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .base2-footer-section a:hover { color: #ff3c00; }
+
+    .base2-footer-bottom {
+      text-align: center;
+      font-size: 13px;
+      margin-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 15px;
+      color: #999;
+    }
+
+    @media (max-width: 768px) {
+      .base2-menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 18px;
+      }
+
+      .base2-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+      }
+
+      .base2-nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        display: none;
+      }
+
+      .base2-nav-links.show { display: flex; }
+
+      .base2-nav-links li a {
+        display: block;
+        padding: 8px 0;
+      }
+    }
+
+    .base2-toast-wrapper {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .base2-toast {
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(145deg, rgba(25,25,25,0.9), rgba(45,45,45,0.9));
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      animation: slideIn 0.5s ease forwards;
+      position: relative;
+    }
+
+    .base2-toast-icon {
+      margin-right: 12px;
+      font-size: 20px;
+    }
+
+    .base2-toast-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: #ccc;
+      cursor: pointer;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .base2-toast-close:hover { color: #fff; }
+
+    .base2-toast.success { border-left: 5px solid #1dd1a1; }
+    .base2-toast.error, .base2-toast.danger { border-left: 5px solid #ee5253; }
+    .base2-toast.info { border-left: 5px solid #54a0ff; }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .base2-notif-badge {
+      background: red;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 7px;
+      border-radius: 50%;
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      font-weight: bold;
+      display: none;
+      box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+      animation: pulseAnim 1.5s infinite;
+    }
+
+    @keyframes pulseAnim {
+      0% { transform: scale(1); box-shadow: 0 0 5px rgba(255, 0, 0, 0.7); }
+      50% { transform: scale(1.2); box-shadow: 0 0 12px rgba(255, 0, 0, 1); }
+      100% { transform: scale(1); box-shadow: 0 0 5px rgba(255, 0, 0, 0.7); }
+    }
+  </style>
+</head>
+
+<body class="base2-body">
+
+<nav class="base2-navbar">
+  <div class="logo">⚡ Chris Young</div>
+  <button class="base2-menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('show')">☰</button>
+  <ul class="base2-nav-links" id="navLinks">
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'sell' %}">Market Place</a></li>
+
+    {% if user.is_authenticated %}
+      <li><a href="{% url 'track_shipment' %}">Track Shipment</a></li>
+      <li>
+        <a href="{% url 'chat_with_admin' %}">
+          Chat with Keanu <span class="base2-notif-badge" id="chatBadge"></span>
+        </a>
+      </li>
+      <li><a href="{% url 'more' %}">More</a></li>
+      <li><a href="{% url 'fanspage' %}">Fans Page</a></li>
+      <li><a href="{% url 'logout' %}">Logout ({{ user.username }})</a></li>
+    {% else %}
+      <li><a href="{% url 'news_list' %}">News</a></li>
+      <li><a href="{% url 'fanspage' %}">Fanspage</a></li>
+      <li><a href="{% url 'login' %}">Login</a></li>
+      <li><a href="{% url 'register' %}">Register</a></li>
+    {% endif %}
+    {% if user.is_superuser %}
+      <li><p style="margin: 10px 0; color: #ff3c00;">Admins Only</p></li>
+      <li>
+        <a href="{% url 'admin_user_list' %}" class="chat-link">
+          User Chats <span class="base2-notif-badge" id="adminBadge"></span>
+        </a>
+      </li>
+      <li><a href="{% url 'admin_upload_fanscard' %}">Upload User Card</a></li>
+      <li><a href="{% url 'upload_gallery' %}">Upload Gallery</a></li>
+      <li><a href="{% url 'upload_fanscard' %}">Upload Fanscard</a></li>
+      <li><a href="{% url 'add_card' %}">Add Premium Card</a></li>
+    {% endif %}
+  </ul>
+</nav>
+
+{% if messages %}
+<div class="base2-toast-wrapper">
+  {% for message in messages %}
+    <div class="base2-toast {{ message.tags }}">
+      <span class="base2-toast-icon">
+        {% if message.tags == 'success' %} ✅
+        {% elif message.tags == 'error' or message.tags == 'danger' %} ❌
+        {% elif message.tags == 'info' %} ℹ️
+        {% else %} ⚠️ {% endif %}
+      </span>
+      <span class="base2-toast-text">{{ message }} Welcome ({{ user.username }})</span>
+      <span class="base2-toast-close" onclick="this.parentElement.remove()">✖</span>
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% block content %}{% endblock %}
+
+<footer class="base2-footer">
+  <div class="base2-footer-section">
+    <h4>About Chris Young</h4>
+    <p>This site provides fast, secure, and reliable chatting with Chris Young the original founder of this site.</p>
+  </div>
+  <div class="base2-footer-section">
+    <h4>Quick Links</h4>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'author' %}">Author</a>
+    <a href="{% url 'donate' %}">Donate</a>
+    <a href="{% url 'fanscard_list' %}">Buy Your Fans Card</a>
+  </div>
+  <div class="base2-footer-bottom">&copy; {{ year }} Chris Young. All rights reserved.</div>
+</footer>
+
+<audio id="notifySound" src="{% static 'sounds/notification.wav' %}" preload="auto"></audio>
+
+<script>
+  function updateUnreadCount() {
+    fetch("{% url 'get_unread_count' %}")
+      .then(response => response.json())
+      .then(data => {
+        const badge = document.getElementById('chatBadge');
+        if (badge) {
+          badge.textContent = data.unread_count;
+          badge.style.display = data.unread_count > 0 ? 'inline-block' : 'none';
+        }
+      });
+  }
+
+  function checkForNewMessages() {
+    fetch("{% url 'get_new_messages' %}")
+      .then(response => response.json())
+      .then(data => {
+        const isStaff = {{ user.is_staff|yesno:"true,false" }};
+        const badge = isStaff ? document.getElementById('adminBadge') : document.getElementById('chatBadge');
+
+        if (badge) {
+          badge.textContent = data.unread_count;
+          badge.style.display = data.unread_count > 0 ? 'inline-block' : 'none';
+        }
+
+        if (data.latest_message) {
+          showPopup(data.latest_message);
+          document.getElementById('notifySound').play();
+        }
+      });
+  }
+
+  function showPopup(message) {
+    const container = document.querySelector('.base2-toast-wrapper') || createToastContainer();
+    const toast = document.createElement('div');
+    toast.className = 'base2-toast info';
+    toast.innerHTML = `
+      <span class="base2-toast-icon">ℹ️</span>
+      <span class="base2-toast-text">${message}</span>
+      <span class="base2-toast-close" onclick="this.parentElement.remove()">✖</span>
+    `;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateX(100px)';
+      setTimeout(() => toast.remove(), 500);
+    }, 5000);
+  }
+
+  function createToastContainer() {
+    const container = document.createElement('div');
+    container.className = 'base2-toast-wrapper';
+    document.body.appendChild(container);
+    return container;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    updateUnreadCount();
+    checkForNewMessages();
+  });
+
+  setInterval(updateUnreadCount, 5000);
+  setInterval(checkForNewMessages, 5000);
+</script>
+
+</body>
+</html>

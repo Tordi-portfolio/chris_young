@@ -10,6 +10,7 @@ urlpatterns = [
     path('app2', include('app2.urls')),
     path('app3', include('app3.urls')),
     path('app4', include('app4.urls')),
+    path('news', include('news.urls')),
     path('tracking', include('tracking.urls')),
 ]
 
