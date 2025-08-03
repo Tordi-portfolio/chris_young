@@ -237,12 +237,7 @@
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'author' %}">Author</a></li>
-    <li><a href="{% url 'gallary' %}">Musics</a></li>
-    <li><a href="{% url 'gallery' %}">Gallery</a></li>
     <li><a href="{% url 'sell' %}">Market Place</a></li>
-    <li><a href="{% url 'more' %}">More</a></li>
-    <li><a href="{% url 'donation_text' %}">Donation</a></li>
     {% if user.is_authenticated %}
       <li><a href="{% url 'track_shipment' %}">Track Shipment</a></li>
       <li>
@@ -250,8 +245,12 @@
           Chat with Chris <span class="notif-badge" id="chatBadge"></span>
         </a>
       </li>
+      <li><a href="{% url 'more' %}">More</a></li>
+      <li><a href="{% url 'fanspage' %}">Fans Page</a></li>
       <li><a href="{% url 'logout' %}">Logout ({{ user.username }})</a></li>
     {% else %}
+      <li><a href="{% url 'news_list' %}">News</a></li>
+      <li><a href="{% url 'fanspage' %}">Fanspage</a></li>
       <li><a href="{% url 'login' %}">Login</a></li>
       <li><a href="{% url 'register' %}">Register</a></li>
     {% endif %}
@@ -311,7 +310,7 @@
 
 <audio id="notifySound" src="{% static 'sounds/notification.wav' %}" preload="auto"></audio>
 
-<script>
+<script> 
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('show');
   }
