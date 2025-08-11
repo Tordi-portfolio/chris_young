@@ -1,11 +1,57 @@
 {% extends "base3.html" %}
-{% load static %}
 
+{% load static %}
 {% block content %}
+<style>
+    .kate-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        color: #fff;
+        background-color: #000;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    .kate-img {
+        max-width: 250px; /* moderate size */
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+        margin-bottom: 20px;
+    }
+
+    .highlight {
+        color: #FFD700;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    p {
+        text-align: justify;
+        line-height: 1.6;
+        font-size: 1rem;
+    }
+
+    @media (max-width: 500px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        .kate-img {
+            max-width: 200px;
+        }
+    }
+</style>
+
 <div class="kate-container">
     <img src="{% static 'fans/kate.jpg' %}" alt="Kate Eston" class="kate-img">
     <h1>🌟 Spotlight on <span class="highlight">Kate Eston</span> 🌟</h1>
-
+    
     <!-- SECTION 1: INTRODUCTION -->
     <p>Kate Eston, from the peaceful heartland of <span class="highlight">Iowa, USA</span>, is a person whose name carries with it a sense of warmth, charm, and an unmistakable glow of kindness. I have had the privilege of knowing Kate for over a year now, and in that time, I have witnessed a tapestry of character traits that deserve to be celebrated. She is one of those rare individuals who doesn’t just pass through your life — she becomes part of it, subtly yet deeply weaving her presence into your story. From the very first moment we spoke, there was a natural ease to the conversation, as if we had already known each other for years.</p>
 
@@ -38,48 +84,6 @@
     <p>From Iowa’s quiet fields to the endless spaces where friendship and connection grow, you’ve carried your light with you, touching lives in ways you might not even realize. This tribute is not just for the Kate I know today, but for the Kate who will continue to inspire, uplift, and make the world brighter in the years to come. You are unforgettable, and I am deeply grateful for every conversation, every shared laugh, and every moment of understanding we’ve exchanged.</p>
 
     <p>Here’s to more years of friendship, shared adventures, and stories yet to be told. Thank you, Kate, for being exactly who you are — a rare and remarkable soul whose presence is a gift to all who know you.</p>
-</div>
-{% endblock %}
 
-{% block extra_css %}
-<style>
-    .kate-container {
-        max-width: 900px;
-        margin: auto;
-        padding: 25px;
-        text-align: center;
-        background-color: #121212;
-        color: #f4f4f4;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-    }
-    .kate-container .kate-img {
-        width: 80%;
-        max-width: 220px;
-        height: auto;
-        border-radius: 50%;
-        box-shadow: 0 0 15px rgba(255, 204, 102, 0.4);
-        margin-bottom: 20px;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
-    .kate-container .kate-img:hover {
-        transform: scale(1.03);
-        box-shadow: 0 0 20px rgba(255, 204, 102, 0.6);
-    }
-    h1 {
-        font-size: 2.2em;
-        margin-bottom: 15px;
-        color: #ffcc66;
-    }
-    p {
-        font-size: 1.1em;
-        line-height: 1.8;
-        margin-bottom: 18px;
-        text-align: justify;
-    }
-    .highlight {
-        font-weight: bold;
-        color: #ff9966;
-    }
-</style>
+</div>
 {% endblock %}

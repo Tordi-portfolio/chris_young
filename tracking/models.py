@@ -43,13 +43,14 @@ class Shipment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     tracking_id = models.CharField(max_length=20, unique=True, editable=False)
     full_name = models.CharField(max_length=100)
+    mobile = models.IntegerField(max_length=15)
     email = models.EmailField()
     service = models.CharField(max_length=100, choices=SERVICE_CHOICES)
     commodity = models.CharField(max_length=100, choices=COMMODITY_CHOICES)
     destination_country = models.CharField(max_length=100)
     destination_country_state = models.CharField(max_length=100)
     destination_country_town = models.CharField(max_length=100)
-    current_location = models.CharField(max_length=100, default='Processing', editable=False)
+    current_location = models.CharField(max_length=100, default='Processing')
     note = models.TextField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=[
         ('Pending', 'Pending'),
