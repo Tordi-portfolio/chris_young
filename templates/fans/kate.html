@@ -1,0 +1,85 @@
+{% extends "base3.html" %}
+{% load static %}
+
+{% block content %}
+<div class="kate-container">
+    <img src="{% static 'fans/kate.jpg' %}" alt="Kate Eston" class="kate-img">
+    <h1>🌟 Spotlight on <span class="highlight">Kate Eston</span> 🌟</h1>
+
+    <!-- SECTION 1: INTRODUCTION -->
+    <p>Kate Eston, from the peaceful heartland of <span class="highlight">Iowa, USA</span>, is a person whose name carries with it a sense of warmth, charm, and an unmistakable glow of kindness. I have had the privilege of knowing Kate for over a year now, and in that time, I have witnessed a tapestry of character traits that deserve to be celebrated. She is one of those rare individuals who doesn’t just pass through your life — she becomes part of it, subtly yet deeply weaving her presence into your story. From the very first moment we spoke, there was a natural ease to the conversation, as if we had already known each other for years.</p>
+
+    <p>Our first exchanges were simple, unhurried, and genuine. Kate listened with the kind of attentiveness that is increasingly rare, not just hearing words but absorbing meaning. She asks thoughtful questions, the kind that show she truly cares, and responds with honesty and warmth. It’s this rare combination — the ability to be present, to connect deeply, and to remain completely authentic — that makes her unforgettable. Even now, after countless conversations, I still look forward to hearing her thoughts, her laughter, and the subtle wisdom that often hides in her simple observations.</p>
+
+    <!-- SECTION 2: BACKGROUND -->
+    <p>Iowa is known for its open skies, golden fields, and communities where neighbors know one another by name. Kate carries that same spirit within her. She embodies the values you would expect from someone raised in such an environment — sincerity, humility, and a quiet strength that stands tall even in difficult times. There is an honesty in her words that you can trust, and a steadiness in her nature that makes her a safe harbor for the people in her life.</p>
+
+    <p>Though she is humble and rarely speaks about herself in a self-promoting way, I’ve learned enough to appreciate the rich story she carries. Iowa may be her home state, but her heart seems to belong to the whole world. She has a curiosity that reaches beyond her immediate surroundings, an eagerness to learn, and a deep empathy for people from all walks of life. Whether she’s engaging with close friends or meeting someone for the first time, Kate approaches every person as if they matter — because to her, they genuinely do.</p>
+
+    <p>It’s in the way she remembers the small details of a conversation, or the way she offers a kind word exactly when it’s needed most. That’s a gift, and one that not many people truly possess. She has a way of making people feel seen, not just noticed. This isn’t a skill she learned from books — it’s a reflection of who she is at her core.</p>
+
+    <!-- SECTION 3: OUR FRIENDSHIP -->
+    <p>Over the past year, my friendship with Kate has grown into something I deeply value. Time has a way of revealing the truth about people, and in Kate’s case, it has only revealed more kindness, more strength, and more beauty of character. Our conversations have ranged from lighthearted banter to deep, reflective discussions about life, purpose, and the challenges we all face. No matter the topic, she always brings a balance of perspective and compassion.</p>
+
+    <p>I remember one conversation in particular when I was feeling weighed down by personal challenges. Kate didn’t rush to give advice or pretend to have all the answers — she simply listened. That kind of presence is powerful. Sometimes, knowing someone is genuinely listening is more comforting than any solution. That’s Kate: steady, supportive, and genuinely invested in the well-being of those around her.</p>
+
+    <p>As Chris Young, I’ve met many people through various connections and walks of life, but it’s rare to find someone who remains consistently genuine over time. Kate is one of those rare gems. She has no need for pretense, no desire to impress by being someone she’s not. Her authenticity is her greatest charm, and it’s what makes our friendship so enduring.</p>
+
+    <!-- SECTION 4: PERSONALITY & STRENGTHS -->
+    <p>Kate’s personality is a blend of warmth and quiet resilience. She’s not the loudest voice in the room, but when she speaks, people listen. There’s a thoughtfulness to her words, a depth that reflects both intelligence and empathy. Her humor is gentle yet clever, and her laughter has a way of easing the tension in any situation.</p>
+
+    <p>She is also remarkably resilient. Life has not always been without its challenges, but she approaches difficulties with a calm determination that I deeply admire. There’s a certain courage in her ability to adapt without losing herself, to remain kind even when life tests her patience. That courage inspires me and reminds me of the strength that comes from staying true to your values.</p>
+
+    <p>Her kindness extends far beyond polite words or simple acts of courtesy. It’s in the way she celebrates the successes of others without envy, the way she offers encouragement without expecting anything in return, and the way she treats every person with the dignity they deserve. Kate understands that real kindness is not about grand gestures, but about the consistent choice to care, even in the small moments.</p>
+
+    <!-- SECTION 5: CLOSING TRIBUTE -->
+    <p>This page is my small way of honoring someone who has had a profound impact on my life. Kate, you’ve shown me what it means to be a true friend — someone who listens, supports, and encourages without judgment. Over the past year, you’ve made me laugh, helped me see things from new perspectives, and reminded me of the simple beauty in genuine connection.</p>
+
+    <p>From Iowa’s quiet fields to the endless spaces where friendship and connection grow, you’ve carried your light with you, touching lives in ways you might not even realize. This tribute is not just for the Kate I know today, but for the Kate who will continue to inspire, uplift, and make the world brighter in the years to come. You are unforgettable, and I am deeply grateful for every conversation, every shared laugh, and every moment of understanding we’ve exchanged.</p>
+
+    <p>Here’s to more years of friendship, shared adventures, and stories yet to be told. Thank you, Kate, for being exactly who you are — a rare and remarkable soul whose presence is a gift to all who know you.</p>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .kate-container {
+        max-width: 900px;
+        margin: auto;
+        padding: 25px;
+        text-align: center;
+        background-color: #121212;
+        color: #f4f4f4;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    }
+    .kate-container .kate-img {
+        width: 80%;
+        max-width: 220px;
+        height: auto;
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(255, 204, 102, 0.4);
+        margin-bottom: 20px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .kate-container .kate-img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px rgba(255, 204, 102, 0.6);
+    }
+    h1 {
+        font-size: 2.2em;
+        margin-bottom: 15px;
+        color: #ffcc66;
+    }
+    p {
+        font-size: 1.1em;
+        line-height: 1.8;
+        margin-bottom: 18px;
+        text-align: justify;
+    }
+    .highlight {
+        font-weight: bold;
+        color: #ff9966;
+    }
+</style>
+{% endblock %}

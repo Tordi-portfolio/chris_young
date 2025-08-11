@@ -14,11 +14,6 @@ urlpatterns = [
     path('get-new-messages/', views.get_new_messages, name='get_new_messages'),
     path('get-unread-count/', views.get_unread_count, name='get_unread_count'),
 
-    path('moodley/', views.moodley, name='moodley'),
-    path('tamara/', views.tamara, name='tamara'),
-    path('johnna/', views.johnna, name='johnna'),
-    path('martha/', views.martha, name='martha'),
-    path('madelena', views.madelena, name='madelena'),
-    path('lucie', views.lucie, name='lucie'),
+    path('kate', views.kate, name='kate'),
 
 ]
